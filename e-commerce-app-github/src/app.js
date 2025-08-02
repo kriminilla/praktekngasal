@@ -1,7 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-app.use(express.json()); // Middleware untuk parsing JSON body
+app.use(express.json()); // Middleware untuk parsing JSON body\
+
+const productRoutes = require('./routes/productRoutes');
+app.use('/api/products', productRoutes);
 
 // Rute untuk setiap modul
 
@@ -15,3 +18,4 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Access API at http://localhost:${PORT}/api`);
 });
+
