@@ -7,10 +7,14 @@ app.use(express.json()); // Middleware untuk parsing JSON body
 const customerRoutes = require("./routes/customerRoutes");
 app.use("/api/customers", customerRoutes);
 
+app.use("/api/users", userRoutes);
+const userRoutes = require("./routes/userRoutes");
+
 // Rute dasar
 app.get("/", (req, res) => {
   res.send("Welcome to the E-commerce API!");
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
